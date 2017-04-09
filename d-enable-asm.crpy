@@ -1,0 +1,4 @@
+PUSHL 2 ; Pesa number pinusse
+PUSHL 1 ; Signaal 1 pinusse
+DWR ; Võta pinust kaks arvu ning väljasta antud pesast antud signaal
+STOP ; Programmi lõpp

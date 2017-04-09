@@ -1,0 +1,22 @@
+\DefineBibliographyStrings{estonian}{%
+	references 	= {Viidatud kirjandus},
+	urlseen		= {}
+}
+\DeclareFieldFormat{urldate}{\mkbibparens{#1}}
+\DeclareFieldFormat{url}{\url{#1}}
+
+\setcounter{secnumdepth}{3}
+
+\makeatletter
+\def\maxwidth#1{\ifdim\Gin@nat@width>#1 #1\else\Gin@nat@width\fi}
+\makeatother
+
+\newcommand{\fig}[3][0.5]{
+	\begin{figure} [!ht] %if [h] doesn't work, we can force with !
+		\centering
+		\includegraphics[width=\maxwidth{#1\textwidth}]{#2}
+		\caption{#3}
+		\label{fig:#2}
+	\end{figure}
+}
+

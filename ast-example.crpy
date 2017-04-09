@@ -1,0 +1,4 @@
+if get_digital(D) == 1:
+    set_output(A, get_digital(C))
+else:
+    set_output(A, 0)

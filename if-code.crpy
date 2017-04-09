@@ -1,0 +1,4 @@
+if get_digital(D) and not get_digital(A):
+    set_output(C, 1)
+else:
+    set_output(C, 0)

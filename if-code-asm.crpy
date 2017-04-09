@@ -1,0 +1,17 @@
+PUSHL 2         ; Pesa D
+DRD             ; Loe pesast D digitaalne signaal
+PUSHL 0         ; Pesa A
+DRD             ; Loe pesast A digitaalne signaal
+NOT_OP          ; Pesa A vastandsignaal
+AND_OP          ; Kahe signaali vaheline loogiline 'ja'
+BEZ l_else      ; Kui 'and' ei kehti, siis hüppa märgise label_else juurde
+PUSHL 3         ; Pesa C
+PUSHL 1         ; Signaal 1
+DWR             ; Väljasta pesast C signaal 1
+BRA l_end       ; Hüppa lõpu märgise juurde
+LABEL l_else    ; Märgi else algus
+PUSHL 3         ; Pesa C
+PUSHL 0         ; Signaal 0
+DWR             ; Väljasta pesast C signaal 1
+LABEL l_end     ; Märgi kogu if-else lause lõpp
+STOP

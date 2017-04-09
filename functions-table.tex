@@ -1,0 +1,19 @@
+\begin{longtable}{l|X}
+	\caption{Crumblepy funktsioonid}
+	\label{functions-table} \\
+	Funktsioon & Kirjeldus \\
+	\hline
+	\endfirsthead
+	Funktsioon & Kirjeldus \\
+	\hline 
+	\endhead
+	\python{set_output(pad, signal)} & Väljastab pesast \python{pad} digitaalse signaali \python{signal}. \\
+	\python{get_digital(pad)} & Loeb ja tagastab digitaalse signaali pesast \python{pad}.\\
+	\python{get_analog(pad)} & Loeb ja tagastab analoogsignaali pesast \python{pad}. \\
+	\python{wait(msec)} & Peatab programmi \python{msec} millisekundiks. \\
+	\python{random(a, b)} & Tagastab suvalise täisarvu \python{a} ja \python{b} vahel (mõlemad kaasa arvatud). \\
+	\python{set_motor_1(pct)} & Seab mootori 1 kiiruseks \python{pct}\%, \python{pct} võib olla vahemikus $-100$ kuni $100$. \\
+	\python{set_motor_2(pct)} & Seab mootori 2 kiiruseks \python{pct}\%, \python{pct} võib olla vahemikus $-100$ kuni $100$. \\
+	\python{set_servo(pad, degree)} & Seab servomootori, mis on ühendatud pesaga \python{pad} nurgaks \python{degree} kraadi. \\
+	\python{get_distance(e, t)} & Tagastab ultraheli kaugusanduri (vt ptk~\ref{kaugusandur}) kauguse, kui anduri pesa ,,E'' on ühendatud Crumble'i pesaga \python{e} ning anduri pesa ,,T'' Crumble'i pesaga \python{t} \\
+\end{longtable}

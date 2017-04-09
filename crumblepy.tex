@@ -2,14 +2,27 @@
 \usepackage[utf8]{inputenc}
 
 
+
+
 % A package for setting layout and margins for your thesis 
 \usepackage[a4paper]{geometry}
 
-
+\usepackage[T1]{fontenc}
 % Use package babel for English or Estonian 
 % If you use Estonian make sure that Estonian hyphenation is installed 
 % - hypen-estonian or eehyp packages
-\usepackage[estonian]{babel} 
+\usepackage[estonian, english]{babel}
+
+\usepackage[backend=biber,
+			sorting=none]{biblatex}
+			
+\usepackage [autostyle]{csquotes}
+\addbibresource{crumblepy.bib}
+
+\input{ut-style.tex}
+
+%\usepackage{babelbib}
+
 % \usepackage[english]{babel}
 % \usepackage[estonian]{babel}
 
@@ -19,7 +32,17 @@
 \usepackage{amsmath} 
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{ltxtable}
 
+\usepackage{tabularx}
+\usepackage{longtable}
+
+\usepackage{forest}
+
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+
+\usepackage{caption}
 % Optional calligraphic fonts    
 % \usepackage[mathscr]{eucal}
 
@@ -33,7 +56,7 @@
 \graphicspath{{figures/}}
 
 % Packages for getting clickable links in PDF file
-\usepackage{hyperref}
+\usepackage[hypertexnames=false]{hyperref}
 \usepackage[all]{hypcap}
 
 
@@ -44,6 +67,8 @@
 %\definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
+
+\usepackage{tocloft}
 
 % Standard package for drawing algorithms
 % Since the thesis in article format we must define \chapter for
@@ -65,6 +90,7 @@
 
 
 % Proper way to create coloured code listings
+\usepackage{bigfoot}
 \usepackage{listings}
 \lstset{ 
   language=python,
@@ -97,26 +123,18 @@
   morekeywords={*,game, fun}       % if you want to add more keywords to the set
 }
 
-
-% If you really want to draw figures in LaTeX use packages tikz or pstricks
-% However, getting a corresponding illustrations is really painful  
-
-
-% Define your favorite macros that you use inside the thesis 
-% Name followed by non-removable space
-\newcommand{\proveit}{ProveIt\xspace}
-
-% Macros that make sure that the math mode is set
-\newcommand{\typeF}[1] {\ensuremath{\mathsf{type_{#1}}}\xspace}
-\newcommand{\opDiv}{\ensuremath{\backslash \mathsf{div}}\xspace} 
+\usepackage{minted}
+\setminted{fontfamily=courier, python3=true, fontsize=\footnotesize}
+\newminted{python}{}
+\newmintinline[python]{python}{}
+\newmintedfile{python}{}
+%\lstMakeShortInline[columns=fixed]|
 
 % Nice Todo box
 \newcommand{\TODO}{\todo[inline]}
 
-% A way to define theorems and lemmata
-\newtheorem{theorem}{Theorem}
 
-
+\selectlanguage{estonian}
 
 
 
@@ -132,7 +150,7 @@
 
 \large
 TARTU ÜLIKOOL\\[2mm]
-Matemaatika-informaatika teaduskond\\
+Arvutiteaduse teaduskond\\
 Informaatika õppekava\\[2mm]
 
 %\vspace*{\stretch{5}}
@@ -147,7 +165,7 @@ Informaatika õppekava\\[2mm]
 %\vspace*{\stretch{7}}
 \vspace{20mm}
 
-\Large Bakalaureustöö
+\Large Bakalaureustöö (9 EAP)
 
 \end{center}
 
@@ -200,5 +218,407 @@ Informaatika õppekava\\[2mm]
 % COMPULSORY INFO PAGE
 \newpage
 
+\noindent\textbf{\large Tüübituletus meetodit neljandat järku loogikavalemitele}
+\vspace*{3ex}
+
+\noindent\textbf{Lühikokkuvõte:} 
+\TODO{One or two sentences providing a basic introduction to the field, comprehensible to a scientist in
+	any discipline.}
+\TODO{Two to three sentences of
+	more detailed background, comprehensible to scientists in related disciplines.}
+\TODO{One sentence clearly stating the general problem being addressed by this particular
+	study.}
+\TODO{One sentence summarising the main result.}
+\TODO{Two or three sentences explaining what
+	the main result reveals in direct
+	comparison to what was thought to be the case previously, or how the main result adds to previous knowledge.}
+\TODO{One or two sentences to put the results into a more general context.}
+\TODO{Two or three sentences to provide a
+	broader perspective, readily
+	comprehensible to a scientist in any
+	discipline, may be included in the first paragraph
+	if the editor considers that the accessibility of
+	the paper is significantly enhanced by their inclusion.}
+\vspace*{3ex}
+
+\noindent\textbf{Võtmesõnad:}\TODO{List of keywords}
+\vspace*{3ex}
+
+\noindent\textbf{CERCS:}\TODO{CERCS kood ja nimetus:~\url{https://www.etis.ee/Portal/Classifiers/Details/d3717f7b-bec8-4cd9-8ea4-c89cd56ca46e}}
+\vspace*{6ex}
+
+
+\noindent\textbf{\large Type Inference for a Fourth Order Logic Formulae}
+\vspace*{3ex}
+{\flushleft{\textbf{Abstract:}} }
+Many interpreting program languages are dynamically typed, such as Visual Basic or Python. As a result, it is easy to write programs that crash due to mismatches of provided and expected data types.  One possible solution to this problem is automatic type derivation during compilation. In this work, we consider study how to detect type errors in the \textsc{Whitespace} language by using fourth order logic formulae as annotations. The main result of this thesis is a new triple-exponential type inference algorithm for the fourth order logic formulae. This is a significant advancement as the question whether there exists such an algorithm was an open question. 
+All previous attempts to solve the problem lead lead to logical inconsistencies or required tedious user interaction in terms of interpretative dance. Although the resulting algorithm is slightly inefficient, it can be used to detect obscure programming bugs in the \textsc{Whitespace} language. The latter significantly improves productivity. Our practical experiments showed that productivity is comparable to average Java programmer.   
+From a theoretical viewpoint, the result is only a small advancement in rigorous treatment of higher order logic formulae. The results obtained by us do not generalise to formulae with the fifth or higher order. 
+
+
+\vspace*{3ex}
+{\flushleft{\textbf{Keywords:}\TODO{List of keywords}}}
+\vspace*{3ex}
+
+\noindent\textbf{CERCS:}\TODO{CERCS code and name:~\url{https://www.etis.ee/Portal/Classifiers/Details/d3717f7b-bec8-4cd9-8ea4-c89cd56ca46e}}
+
+
+
+\newpage
+\selectlanguage{estonian}
+\tableofcontents
+
+
+
+\section*{Sissejuhatus}
+\addcontentsline{toc}{section}{Sissejuhatus}
+
+Something
+
+\section{Crumble}
+Crumble on Redfern Electronics’i loodud trükkplaat, millega on võimalik juhtida nii spetsiaalselt Crumble’i jaoks ehitatud sisend-väljundkomponente (koondnimega Crumb’id) kui ka tavalisi elektroonikakomponente ning valgusdioode (vt~\ref{sparkle})~\cite{TheCrumbleController}. Crumb’id erinevad analoogilistest elektroonikakomponentidest selle poolest, et neil on spetsiaalsed Crumble’ile mõeldud pesad. Nende pesade eelised on kirjeldatud peatükis~\ref{sec:kontroller}
+
+Järgnevad peatükid tutvustavad Crumble’i kontrollerit, komponente, mida sellega on võimalik ühendada, ning tarkvara, milles on võimalik luua programme kontrolleril jooksutamiseks.
+
+\subsection{Redfern Electronics’i toodetud originaalkomponendid}
+Crumble’ile loovad komponente põhiliselt kaks firmat: Redfern Electronics, kes on Crumble’i originaalautorid, ning 4tronix~\cite{4tronix}. Selle peatüki alampeatükid räägivad olulisematest komponentidest, mida Redfern Electronics toodab ja müüb.
+
+\subsubsection{Kontroller} \label{sec:kontroller}
+
+Kontroller on Crumble’i keskne komponent ning vajalik kõigi teiste komponentide tööks. Sellel on sisemälu ja protsessor, et salvestada jooksutatavat programmi ning juhtida ühendatud komponentide tööd. Kontrolleril on ühendused kahele mootorile, neljale sisend-väljundkomponendile, ühele energiasisendile (nt patareipakist), ühele energiaväljundile (nt valgusdioodile) ning Micro-USB kaablile~\cite{TheCrumbleController}. Joonisel~\ref{fig:basic-connections} on ülevaade Crumble kontrollerist.
+
+\fig[0.9]{basic-connections}{Crumble’i kontrolleri ülevaade~\cite{BasicConnections}.}
+
+
+
+
+Iga kontrolleri pesa on loodud võimaldamaks mitut erinevat ühendusviisi: suur 4mm auk sobib mugavaks ühendamiseks krokodilljuhtmete, elektrit juhtiva niidi või terminalplokiga\footnote{vt ptk~\ref{playground}} ning suur juhtiv pind sobib juhtmete jootmiseks~\cite{TheCrumbleController}.
+
+Kontrolleri saab ühendada Micro-USB pesa kaudu arvutiga, kust on võimalik sellele saata jooksutamiseks programme. Programmide loomiseks on Redfern Electronics loonud spetsiaalse tarkvara, mis kasutab MIT Scratchil~\cite{Scratch-ImagineProgramShare} põhinevat kasutajaliidest. Tarkvarast kirjutatakse lähemalt peatükis~\ref{tarkvara}.
+
+Crumble kontroller võib toidet saada nii arvutist läbi USB ühenduse kui ka muust 4.5 - 5.5 V energiaallikast läbi energiasisendühenduse. Väliseks energiaallikaks sobivad muuhulgas standardsed AA suuruses patareid.
+
+\subsubsection{Crumble-sõbralike komponentide komplekt}
+
+\fig{crumble-friendly-components}{Crumble-sõbralikud komponendid~\cite{crumblefriendlycomponents}.}
+
+Redfern Electronics pakub komplekti kaheksa Crumble-sõbraliku komponendiga~\cite{Crumble-friendlycomponentspack|RedfernElectronics}. See sisaldab endas järgnevaid komponente (joonisel~\ref{fig:crumble-friendly-components} alustades vasakult ülevalt ning liikudes paremale alla): lampi, mikrolülitit\footnote{kahe väljundi vahel lülitatav lüliti~\cite{Snapactionswitches}}, fototakistit, keelreleed\footnote{magnetväljale reageeriv lüliti~\cite{Reedswitches}}, valgusdioodi, tumblerlülitit,  kallutusandur-lülitit ja sumistit. Crumble-sõbralikuks teeb need komponendid asjaolu, et neil on Crumble’iga mugavamaks ühendumiseks spetsiaalsed pesad.
+
+\subsubsection{Ultraheli kaugusandur} \label{kaugusandur}
+
+\fig[0.3]{ultrasonic}{Ultraheli kaugusanduri tagakülg~\cite{HC-SR04backwithCrumbliser}.}
+
+Ultraheli kaugusandur \cite{UltrasonicDistanceMeasuringSensor|RedfernElectronics} võimaldab Crumble programmil mõõta anduri kaugust seinast. Väiksemate objektide kauguse mõõtmiseks ei ole antud kaugusandur sobilik, kuna see vajab ultrahelisignaali tagasipõrkamiseks suurt tasast pinda (nagu sein). Tegemist on HC-SR04~\cite{HCSR04UsersManual} kaugusanduriga, millele on Crumbliser’iga (vt ptk~\ref{crumbliser}) lisatud Crumble ühendused. Alates tarkvara versioonist 0.25.0 on võimalik seda komponenti juhtida ühe käsuplokiga~\cite{UltrasonicDistanceMeasuringSensor|RedfernElectronics}. Joonisel~\ref{fig:ultrasonic} on näha anduri tagakülg koos sellega ühendatud Crumbliser’iga.
+
+\subsubsection{Joonejälitaja}
+
+\fig[0.4]{Line-follower-board}{Joonejälitaja~\cite{Linefollowerboard}.}
+
+Joonejälitaja võimaldab Crumble’i põhjal ehitatud robotil sõita mööda maha märgitud joont. Jälitaja väljastab kaht signaali: üks signaal, kui on tarvis vasakule pöörata, ning teine signaal, kui on tarvis paremale pöörata. Joonisel~\ref{fig:Line-follower-board} on näidatud joonejälitaja. +/- ühendused on sisendenergia jaoks ning L ja R väljundid vastavalt vasakule ja paremale pööramiseks.
+
+\subsubsection{Sparkle} \label{sparkle}
+
+\fig[0.4]{Two-Sparkles-to-Crumble}{Sparkle’ite ühendamine Crumble kontrolleriga~\cite{TwoSparklestoCrumble}.}
+
+Sparkle’iteks~\cite{Sparkles|RedfernElectronics} nimetatakse Crumble’iga ühilduvaid täisvärvides valgusdioode. Need on standardiga WS2812B~\cite{WS2812B} ühilduvad, mis tähendab, et Crumble’iga on võimalik kõiki selle standardi valgusdioode ühendada ning neid individuaalselt juhtida. Erinevalt Sparkle’itele pole selliseid valgusdioode üldjuhul nii lihtne Crumble’iga ühendada, sest neil puuduvad spetsiaalsed pesad juhtmete hoidmiseks. Joonisel~\ref{fig:Two-Sparkles-to-Crumble} on näidatud, kuidas on võimalik mitu Sparkle’it jadamisi ühendada. Crumble tarkvara võimaldab kuni 32 erinevat Sparkle’it individuaalselt juhtida.
+
+\subsubsection{Crumbliser} \label{crumbliser}
+
+\fig[0.4]{Crumblizer-with-WS2812B-Strip}{Crumbliseriga ühendatud WS2812B tüüpi valgusdioodriba~\cite{CrumblizerwithWS2812BStrip}.}
+
+Crumbliser~\cite{CrumbliserRedfernElectronics} on Crumble komponent, mis võimaldab suvalistele elektroonikakomponentidele külge joota Crumble ühendused. Selleks on Crumbliser plaadil neli väiksemat jootmiseks mõeldud ühendust, millest igaüks on ühendatud suurema Crumble-tüüpi ühendusega. Iga ühenduse kõrval on ka valge ala, kuhu saab markeriga meeldetuletuseks kirjutada iga ühenduse otstarbe. Joonisel~\ref{fig:Crumblizer-with-WS2812B-Strip} on kujutatud WS2812B  tüüpi valgusdioodriba, millele on Crumbliseri abil lisatud Crumble-tüüpi ühendused.
+
+\subsubsection{Mootor}
+
+\fig[0.4]{Pair-of-geared-motors}{Kaks mootorit~\cite{Pair-of-geared-motors}.}
+
+Redfern Electronics toodab ka Crumble’iga ühilduvaid mootoreid~\cite{PairofGearedMotors|RedfernElectronics}. Mootor tuleb ühendada kontrolleril ühte kahest spetsiaalselt mootorite ühendamiseks mõeldud pessa. Joonisel~\ref{fig:Pair-of-geared-motors} on kujutatud kaks mootorit, millel on krokodilljuhtmed, et Crumble’iga lihtsasti ühenduda.
+
+\subsection{4tronix'i toodetud komponendid}
+
+Lisaks Redfern Electronics’ile toodab Crumble’ile komponente ka Ühendkuningriigist pärit firma 4tronix~\cite{Crumble4tronix}.
+
+\fig{4tronix-komponendid}{Firma 4tronix toodetud Crumb’id~\cite{4tronixtoodetavadCrumbid}.}
+
+Joonisel~\ref{fig:4tronix-komponendid} on kujutatud valik 4tronix’i komponentidest Crumble’ile. Kuigi mõned nendest kattuvad Redfern’i enda poolt toodetud komponentidega, siis nendel on oluline disainierinevus. Peaaegu kõigil firma 4tronix toodetud Crumble’ile mõeldud komponentidel on kaks +/- ühenduspaari ning eraldi ühendus(ed) komponendi väljundi(te) jaoks. See võimaldab nende Crumb’e omavahel jadamisi ühendada ning sellega laiendada kontrolleri energiaväljundpesasid. Samuti on need komponendid värvi järgi kategoriseeritud. Kollased komponendid on analoogsisendkomponendid, sinised digitaalsisendkomponendid, punased analoogväljundkomponendid ning mustad digitaalväljundkomponendid. Järgnevalt on välja toodud olulisemad komponendid, mida 4tronix toodab ning mida Redfern ei tooda.
+
+\subsubsection{Kiirendusandur} \label{kiirendus}
+
+Kiirendusandur on seade, millega on võimalik mõõta kiiruse muutumist (kiirendust)~\cite{Kiirendusandur}. Selleks on kiirendusanduri Crumb’il kolm väljundit kolmes dimensioonis kiirenduse lugemiseks: X, Y ja Z~\cite{MotionSensorCrumbAccelerometerforCrumbleController}.
+
+\fig[0.4]{kiirendusandur}{4tronix Crumble’ile loodud kiirendusandur~\cite{Kiirendusandura}.}
+
+Joonisel~\ref{fig:kiirendusandur} on 4tronix’i toodetud kiirendusandur. Selle komponendi plaadi ülalosas on ka toodud joonis näitamaks, mis suunas X, Y ja Z väljundid kiirendust väljastavad.
+
+\subsubsection{Lähedusandur}
+
+\fig[0.4]{proximity-sensor}{4tronix lähedusandur~\cite{Lahedusandur}.}
+
+Lähedusandur (joonisel~\ref{fig:proximity-sensor}) võimaldab tuvastada, kas mingi objekt on anduri lähedal. Komponendil on selle tarbeks infrapunaemitter ja -vastuvõtja, et mõõta lähedal asuva objekti pealt peegelduva infrapunakiirguse intensiivsust ning seeläbi hinnata, kas tema ees on mingi objekt~\cite{ProximitySensorCrumbDigitalInputforCrumbleController}. Kui komponent tuvastab, et tema ees asub lähedal objekt, siis süttib valgusdiood komponendi peal ning väljastatakse digitaalne signaal 1. Anduri tuvastamiskaugus on umbes 2-10 cm olenevalt objektist.
+
+\subsubsection{Puudutusandur}
+
+\fig[0.4]{touch-sensor}{4tronix puudutusandur~\cite{Puudutusandur}.}
+
+Puudutusanduril (joonis~\ref{fig:touch-sensor}) on kaks ala, mille puudutamisel süttib indikaatortuluke ning väljastatakse vastavast väljundist digitaalne signaal 1. Samuti on plaadil ka kaks lisaühendust (märgitud ,,Ext 1'' ja ,,Ext 2''), millega on võimalik laiendada vastavaid puudutusalasid teiste puudutusalade või objektidega (nt puuviljad). Joonisel~\ref{fig:touch-sensor-fruit} on näidatud, kuidas seda on võimalik kasutada.
+
+\fig[0.6]{touch-sensor-fruit}{Puuviljadega ühendatud puudutusandur~\cite{Puuviljadegauhendatudpuudutusandur}.}
+
+Kuigi sellisel puuviljadega ühendamisel on vähe praktilist kasutust, siis on see siiski huvitav ja ebatavaline viis oma projekti juhtimiseks.
+
+\subsubsection{Numbrinäidik}
+
+\fig[0.8]{number-display}{Crumble kontrolleriga ühendatud numbrinäidik~\cite{Crumblekontrollerigauhendatudnumbrinaidik}.}
+
+Numbrinäidik on analoogväljundseade, mis ühendub kontrolleri mootoripesadesse ning väljastab 7-segmendilistel näidikutel numbrit -100-st +100-ni vastavalt mootoripesa väljastatud väärtusele~\cite{NumberDisplayCrumbforCrumbleController}. Negatiivsete arvude kuvamisel süttivad lisaks vastava positiivse numbri kuvamiseks tarvilikud segmendid ka kuvari allääres olevad kaks täppi. Arvu 100 (ja -100) kuvamiseks on kasutatud omapärast lahendust, sest kasutada on vaid kaks numbrinäidikut. Selleks süttivad vasakpoolse näidiku ülemine horisontaalne segment (moodustades horisontaalse numbri 1) ning mõlemal näidikul alumised neli segmenti (moodustades kumbki numbri 0). Negatiivse arvu 100 puhul süttivad ka täpid näidiku allääres. Suuremate arvude kui 100 ja väiksemate arvude kui -100 kuvamise reeglid pole üheselt määratud. Joonisel~\ref{fig:number-display} on kujutatud numbrit 99 kuvav numbrinäidik.
+
+\subsubsection{Passiivne infrapunasensor}
+
+\fig[0.6]{PIR-sensor}{Crumble kontrolleriga ühendatud passiivne infrapunasensor~\cite{Passiivneinfrapunasensor}.}
+
+Passiivne infrapunasensor (joonisel~\ref{fig:PIR-sensor}) mõõdab muutusi ümbritsevas infrapunakiirguses ning võimaldab sellega tuvastada muuhulgas inimeste liikumist~\cite{PIRSensorCrumbDigitalInputforCrumbleController}. Liikumise tuvastamisel väljastab sensor digitaalse signaali 1.
+
+\subsubsection{Servomootor} \label{servo}
+
+\fig[0.3]{servo}{4tronix servomootor~\cite{Servomootor}.}
+
+Servomootor erineb tavalisest mootorist selle poolest, et kui signaali saamisel tavaline mootor pöörleb pidevalt, siis servomootor pöörab end vastavalt sisendsignaaline kindlasse asendisse ja üritab seda asendit säilitada~\cite{Servomootorroboticlab}. 4tronix servomootor (joonisel~\ref{fig:servo}) võimaldab võtta asendi -90 ja 90 kraadi vahel~\cite{ServoCrumbforCrumbleController}.
+
+\subsubsection{PlayGround} \label{playground}
+
+PlayGround (joonis~\ref{fig:playground}) on 4tronix’i loodud terminalplokk selleks, et Crumble (ja Micro:Bit) komplekte mugavamalt kasutada~\cite{PlaygroundforCrumbleBlog}. Crumble kontroller ühendub kruvidega PlayGround plaadi külge. Plaadi all on kontrolleri toiteks patereipakk ning külgedel erinevad sisend-väljundpesad.
+
+\fig{playground}{PlayGround, Gizmod ja juhtmed~\cite{PlayGroundGizmodjajuhtmed}.}
+
+4tronix kirjutab oma blogisissekandes~\cite{PlaygroundforCrumbleBlog}, et PlayGroundi teeb eriliseks see, et lisaks tavalistele Crumble-tüüpi ühendustele on nad lisanud ka 3,5-millimeetrised pesad, mis on paremini tuntud ka kui pesad kõrvaklapijuhtmete ühendamiseks. Nendes pesades on ühte kokku toodud kolm Crumble-tüüpi pesa: energia sisend-väljnud ning signaal. See võimaldab projekte oluliselt paremini organiseerida, sest tavalise kolme juhtme asemel iga Crumb’i kohta on võimalik sama tulemust saavutada ühe juhtmega ning kõrvaklapijuhtmete ühendamine om palju lihtsam kui krokodilljuhtmete ühendamine. 
+
+4tronix on loonud paljudest juba nende toodetud Crumb’idest spetsiaalselt PlayGroundile mõeldud versioonid (Gizmod), millel on Crumble-tüüpi pesade asemel 3,5-millimeetrised pesad PlayGroundiga (või teiste Gizmodega) ühendumiseks. Lisaks pakuvad nad ka prototüüpimise Gizmot (joonisel all paremal), millega on võimalik ise luua PlayGroundiga ühenduv Gizmo~\cite{PrototypingGizmoforPlayground-MakeyourownGizmo}.
+
+
+\subsection{Arenduskeskkond ja -protsess} \label{tarkvara}
+
+Crumble’ile programmide loomiseks on tarvis mikrokontroller USB kaudu arvutiga ühendada. Samuti on vajalik alla laadida ja arvutisse paigaldada Crumble tarkvara (kättesaadav aadressil \url{http://redfernelectronics.co.uk/crumble-software/}).
+
+Crumble tarkvara on MIT Scratchist inspireeritud keskkond Crumble’i programmide arendamiseks~\cite{TheCrumbleController}. Sarnaselt Scratchile luuakse programme erinevate plokkide kokkuvedamisega. Iga plokk on vastavalt oma tüübile kindla kujuga ning plokkidel võivad olla ka kindla kujuga augud, kuhu saab teisi plokke sisestada. Kõik käsud on pusletükikujulised ning sobituvad üksteise järele, tõeväärtused on kuusnurgad ning arvud ja muutujad ümardatud otstega ristkülikud.
+
+\fig{crumble-software}{Crumble tarkvara.}
+
+Joonisel~\ref{fig:crumble-software} on näidatud Crumble tarkvara koos lihtsa programmiga, mis seab kõik Sparkle’id punaseks. Vasakul ääres on valik plokke erinevates kategooriates: ,,Basic'' (enimkasutatavad), ,,Input/Output'' (sisend-väljnud), ,,Sparkles'' (Sparkle’id), ,,Control'' (programmi juhtplokid), ,,Variables'' (muutujad) ja ,,Operators'' (tehted).
+
+Tarkvaral on kaks nuppu: roheline kolmnurk ja punane ruut. Roheline nupp laadib praeguse programmi USB ühenduse kaudu Crumble kontrollerisse ning käivitab selle. Punane nupp peatab hetkel jooksva programmi. Samuti on võimalik rippmenüüst ,,File'' Crumble programme arvutisse salvestada ja sealt uuesti laadida.
+
+Iga programm peab koosnema täpselt ühest ,,Program start'' plokist. See plokk tähistab programmi alguse kohta, seega kogu programmi tegevus algab sealt. Järgnevalt on toodud kategooriate kaupa kõikide plokkide kirjeldused.
+
+\subsubsection{Sisend-väljundplokid}
+
+\fig[0.3]{input-output}{Sisend-väljundplokkide nimekiri.}
+
+Sisend-väljundplokid (joonisel~\ref{fig:input-output}) võimaldavad digitaalselt ja analoogiliselt lugeda ja digitaalselt kirjutada kontrolleri A, B, C ja D pesadele. Kirjutamiseks on ,,set'' plokk, mis võimaldab valitud pesalt väljastada digitaalse signaali 1 või 0 (HI või LO). 
+
+\fig[0.3]{motorblock}{,,Motor'' ploki kolm seadistust}
+
+
+,,Motor'' plokk juhib mootoripesasid. Võimalik on valida pesa 1 või 2 vahel ning kas mootor peatada, edasi liikuda või tagasi liikuda (vastavalt ,,STOP'', ,,FORWARD'' ja ,,REVERSE'', vt joonis~\ref{fig:motorblock}) ning kui kiiresti protsendina 0-st 100-ni.
+
+,,Servo'' plokiga on võimalik seada kindel servomootor (vt~\ref{servo}) mingisse teatud asendisse. Tuleks tähele panna, et servomootor ei ühendu mootoripesadega vaid väljundpesaga A, B, C või D (lisaks energiaväljundile).
+
+,,(A/B/C/D) is (HI/LO)'' plokk tagastab, kas valitud sisendpesast tulev signaal on sees või mitte. Näiteks ,,A is HI'' plokk tagastaks tõese väärtuse, kui pesaga A ühendatud nuppu all hoitakse.
+
+,,Analogue (A/B/C/D)'' plokki kasutatakse analoogsignaali saamiseks valitud pesast. See on kasulik, kui Crumb’i tagastatud väärtus on pidev suurus ning mitte kas 0 või 1. Analoogsignaal kajastub koodis arvuna 0-st 255-ni. Seda kasutatakse näiteks kiirendusanduri (vt~\ref{kiirendus}) puhul.
+
+,,Distance'' plokk on ultraheli kaugusandurilt (vt~\ref{kaugusandur}) tema vastas oleva objekti kauguse teada saamiseks. Selleks tuleb anduri T ja E ühendused ühendada kontrolleriga ning ,,distance'' plokis ära määrata. Plokk tagastab andurilt saadud kauguse sentimeetrites.
+
+\subsubsection{Sparkle'ite juhtimisplokid}
+
+\fig[0.3]{sparkles}{Sparkle'ite juhtimisplokkide nimekiri.}
+
+Kõiki Sparkle’eid on võimalik nii korraga kui ka individuaalselt muuta kindlaks värviks. Selleks on plokid ,,set sparkle to'' ning ,,set all sparkles to''. Esimene seab kindla Sparkle’i kindlaks värviks ning teine teeb sama kõikide Sparkle’itega. Nendest plokkidest on Crumble tarkvaras kaks varianti: värvivalimisdialoogiga variant (joonisel~\ref{fig:sparkles} esimene ja kolmas plokk), mis võimaldavad kasutajal spetsiaalse akna abil valida sobiv värv, ning RGB väärtustega variant (viies ja kuues plokk joonisel), kus kasutaja saab määrata punase, rohelise ja sinise värvi intensiivsuste (vahemikus 0 kuni 255) kombinatsiooniga Sparkle’i värvi. Plokid ,,turn sparkle off'' ja ,,turn all sparkles off'' lülitavad vastavalt ühe kindla või kõik Sparkle’id välja.
+
+
+\subsubsection{Juhtplokid}
+
+\fig[0.3]{control}{Juhtplokkide nimekiri.}
+
+Juhtplokid (joonisel~\ref{fig:control}) võimaldavad programmi tööd juhtida vastavalt teatud tingimustele. ,,Wait seconds'' ja ,,wait milliseconds'' plokid ootavad vastavalt mingi arvu sekundeid või millisekundeid enne järgmise käsu täitmist. ,,Wait until'' plokk peatab programmi töö nii kaua kuni teatud tingimus on täidetud. ,,If then'' ning ,,If then else'' plokid võimaldavad mingi tingimuse kohaselt käivitada või mitte käivitada koodiplokke. ,,Do until'', ,,do X times'' ja ,,do forever'' plokid 
+võimaldavad koodiplokke korduvalt käivitada vastavalt mingi tingimuse täitumiseni, täpselt X korda või lõpmatu arv kordi.
+
+\subsubsection{Muutujaplokid}
+
+\fig[0.25]{variables}{Muutujaplokkide nimekiri.}
+
+Muutujaplokid (joonisel~\ref{fig:variables}) võimaldavad luua muutujaid, seada neile väärtuseid ning nende väärtuseid lugeda. ,,Let'' plokk seab muutujale väärtuse. Muutuja plokk tuleb tõmmata ,,Add New Variable'' nupu all olevatest muutujaplokkidest. Algselt on olemas muutujaplokid nimedega ,,t'', ,,u'', ,,v'', ,,w'', ,,x'', ,,y'' ja ,,z'', kuid neid on võimalik kustutada (nupuga ,,del''), ümber nimetada (nupuga ,,rename'') ning juurde lisada (nupuga ,,Add New Variable''). ,,Increase by'' plokk 
+lisab muutuja väärtusele mingi arvu. ,,Decrease by'' plokk vähendab muutuja väärtust mingi arvu võrra.
+
+\fig[0.25]{variable-value}{Muutuja ,,t'' väärtus on 45.}
+
+Programmi jooksmise ajal on võimalik kõigi muutujate väärtuseid muutujaplokkide nimekirjas näha. Joonisel~\ref{fig:variable-value} on näha, et muutuja ,,t'' väärtuseks on 45. Teiste muutujate väärtused on ,,?'', sest nendele pole programmi töös määratud väärtust.
+
+\subsubsection{Tehteplokid}
+
+\fig[0.25]{operators}{Tehteplokkide nimekiri.}
+
+Tehteplokid (joonis~\ref{fig:operators}) võimaldavad teha programmi töös esinevate väärtustega aritmeetilisi ja loogilisi operatsioone. Aritmeetikast on võimaldatud liitmine, lahutamine, korrutamine ja jagamine, kusjuures jagamine on täisarvuline jagamine, kus vastuseks on vaid täisosa ning jääk visatakse minema. See on põhjustatud sellest, et Crumble ei võimalda ujukomaarvudega töötamist. Loogilistest operatsioonidest on võimaldatud võrdus, mittevõrdus, ,,suurem kui'', ,,väiksem kui'', ,,ja'', ,,või'' ning ,,mitte''. Lisaks on tehteplokina toodud ka ,,random'' plokk, mis tagastab suvalise täisarvu etteantud vahemikus (mõlemad otspunktid kaasaarvatud).
+
+\subsection{Arhitektuur}
+
+Crumble kontroller kasutab oma protsessoriks PIC16F1455~\footnote{\url{http://www.microchip.com/wwwproducts/en/PIC16F1455}} tüüpi mikrokontrollerit. Sellel on 14 KB mälu programmide salvestamiseks ning 1024 baiti sisemälu~\cite{PIC16F1455}. Komponentide juhtimiseks on Redfern Electronics loonud kontrollerile oma masinkoodi. Katse-eksitus meetodil leitud masinkoodi käsud ja nende kirjeldused on toodud lisas~\ref{masinkoodi-käsud}. 
+
+
+Käsu enda argumendid (näiteks käsu ,,\texttt{POP} $a$'' puhul $a$) kodeeritakse koos käsu koodiga otse masinkoodi sisse. Käsu kood on tabelis esitatud kuueteistkümnendsüsteemi arvuna grupeeritud baitide kaupa. See on käsu numbriline esitus, mida Crumble protsessor lugeda ja millele vastavalt käituda oskab. Käsu argumendi kodeerimiseks lühendatakse see ühe baidi (kümnendüsteemi arv vahemikus $0$ kuni $255$) pikkuseks ning liidetakse otse käsu koodile. Näiteks käsu ,,\texttt{POP} 45'' masinkoodi esitusviis oleks ,,\texttt{03~2D}'', sest ,,\texttt{POP}'' masinkoodis on \texttt{03 00} (vt lisa \ref{masinkoodi-käsud}), $45$ kuueteistkümnendsüsteemis on \texttt{2D} ning $\texttt{03 00} + \texttt{2D} = \texttt{03 2D}$.
+
+Loogikatehete puhul (näiteks ,,\texttt{OR}'') loetakse tõeseks väärtuseks kõike, mis ei ole $0$.
+
+
+\section{Crumblepy}
+
+Crumblepy~\footnote{Kättesaadav aadressil \url{https://github.com/rasmussaks/crumblepy}} on käesoleva töö raames loodud Pythonil põhinev programmeerimiskeel, millega on võimalik juhtida Crumble'i tööd. Järgnevad peatükid kirjeldavad nii Crumblepy ehitust ja kuidas selleni jõuti kui ka tööprotsessi sellega töötamisel.
+
+\subsection{Arhitektuur}
+
+Kuigi Crumble tarkvara on loodud Python 2-s, siis Crumblepy on kirjutatud Python 3-s. See erinevus tuleneb põhiliselt sellest, et Pythoni loojad ise soovitavad uute projektide alustamisel kasutada Pythoni kolmandat versiooni, sest see on paljudes aspektides parem kui Python 2~\cite{Python2orPython3-PythonWiki}. Lisaks sellele on autor tuttavam Python 3-ga kui Python 2-ga. Kuna Crumblepy põhineb Crumble tarkvara lähtekoodil, siis on tarvis Python 2-s kirjutatud kood ümber teisendada vastavaks Python 3 koodiks. 
+
+Failis ,,crumblepy/usb.py'' on kokku pandud Redfern Electronics'i loodud Pythoni kood Crumble'iga suhtlemiseks USB kaudu, mis on ümber teisendatud Python 3-e. Antud juhul oli tarvis teha vähe muudatusi, et algne kood jookseks samamoodi Python 3-l, kui ta jooksis Python 2-l. Põhilised erinevused tulenesid täisarvude jagamisel~\footnote{Kahe täisarvu jagamine Python 2-s tagastab täisarvu ($5/2 = 2$), Python 3-s aga ujukomaarvu ($5/2 = 2.5$)~\cite{KeyDifferences}} ning generaatorobjektide vs listide tagastamisel~\footnote{Python 2-s tagastasid paljud sisseehitatud funktsioonid (nt \python{range()} ja \python{dict().keys()}) list-tüüpi objekte, kuid Python 3-s tagastavad nad generaatorobjekte~\cite{KeyDifferences}}
+
+Crumblepy on loodud olema algajatele võimalikult lihtne viis riistvaraprogrammeerimisega tegelemiseks. Seetõttu valiti Crumblepy keele põhjaks just Python, mida tihti õpetatakse koolides esimese programmeerimiskeelena. Samuti teeb Pythoni standardteek Pythoni parsimise väga lihtsaks, pakkudes selleks \python{ast} moodulit \cite{PythonAST}. Mooduli funktsioon \python{ast.parse()} võimaldab parsida sisendsõne Pythoni abstrakseks süntaksipuuks nagu on näidatud joonisel~\ref{astparse}.
+
+\begin{figure}[ht]
+	\label{astparse}
+	\pythonfile{ast.parse.py}
+	\caption{Faili parsimine abstraktseks süntaksipuuks}
+\end{figure}
+
+Tulemuseks on puu, mille tipud on Pythoni süntaksielemendid, mis on täielikult kirjeldatud Pythoni dokumentatsiooni peatükis 32.2.2~\footnote{\url{https://docs.python.org/3/library/ast.html#abstract-grammar}}. Selle puu rekursiivse läbimisega on võimalik kompileerida Pythonil põhinev sisendkood Crumble kontrollerile mõistetavaks masinkoodiks.
+
+Crumble'i masinkoodi piirangute tõttu ei ole võimalik kõiki Pythoni keele võimalusi kompileerida, mistõttu on paljud nendest välja jäetud ning annavad kompileerimisel veateate. Sinna kuuluvad näiteks ujukomaarvud, andmetüübid \python{list} ja \python{dict} ning palju muud. Crumblepy keele võimalustest on kirjutatud peatükis \ref{keele-võimalused}.
+
+\subsection{Kompilaator}
+
+Crumblepy kompilaator (failis ,,crumblepy/compiler.py'') kasutab Pythoni \python{ast} moodulit, et saada sisendfaili abstraktne süntaksipuu ning seejärel muundab selle Crumble kontrollerile arusaadavaks masinkoodiks. Vahelüliks masinkoodi ja Crumblepy koodi vahel on assemblerkood, mis on inimloetav masinkood. Joonisel \ref{denable} on toodud Crumblepy kood, mis väljastab signaali $1$ pesast D, ning joonisel \ref{denable-assembly} on sama kood esitatud assemblerkoodis, kuhu on lisatud kommentaarid iga rea ülesande kohta.
+
+\begin{figure}[ht]
+	\pythonfile{d-enable.crpy}
+	\caption{Python kood väljundpesa D sisselülitamiseks}
+	\label{denable}
+\end{figure}
+
+\begin{figure}[ht]
+	\inputminted{text}{d-enable-asm.crpy}
+	\caption{Kommenteeritud assemblerkood väljundpesa D sisselülitamiseks}
+	\label{denable-assembly}
+\end{figure}
+
+Erinevalt lähtekoodist, kompileeritakse iga assemblerkoodi käsk üheks (välja arvatud mõnel erandjuhul kaheks) masinkoodi käsuks. Joonisel \ref{denable} on üks lähtekoodi käsk \python{set_output(D, 1)}, mis masinkoodis esitatakse kolme käsuga: kaks käsku argumentide pinusse panemiseks ning üks käsk väljundpesa väljundi seadmiseks vastavalt pinust loetud väärtustele.
+
+Iga Pythoni abstraktse süntaksipuu juurtipuks on \texttt{Module}, millest hargnevad alamtipud vastavalt programmi sisule. Joonisel~\ref{ast-code} on toodud kood, mis seab pesa A väljundiks pesa C signaali, kui pesa D signaal on 1, või signaali 0, kui pesa D signaal ei ole 1.
+
+\begin{figure}[ht]
+	\pythonfile{ast-example.crpy}
+	\caption{Crumblepy kood pesa A väljundi seadmiseks vastavalt pesa D signaalile}
+	\label{ast-code}
+\end{figure}
+
+Joonisel~\ref{ast-tree} on kujutatud joonisel~\ref{ast-code} toodud Crumblepy koodi abstraktne süntaksipuu, mis on saadud funktsiooni \python{ast.parse()} kasutamisel antud koodi peal.
+
+\begin{figure}[ht]
+	\centering
+	\shorthandoff{"}
+	\begin{forest}
+		lbl/.style={%
+			edge label={node [midway, sloped, above, font=\scriptsize] {\ttfamily#1}}
+		},
+		for tree = {font=\ttfamily}
+		[Module
+			[IfExp
+				[Compare
+					[Call
+						["get\_analog"]
+						[Name ["D"]]
+					]
+					[Eq]
+					[Num
+						[1]
+					]
+				]
+				[Call
+					["set\_output"
+						[Name ["A"]]
+						[Call
+							["get\_output"]
+							[Name ["C"]]
+						]
+					]
+				]
+				[Call
+					["set\_output"
+						[Name ["A"]]
+						[Num [0]]
+					]
+				]
+			]
+		]
+	\end{forest}
+	\shorthandon{"}
+	\label{ast-tree}
+	\caption{Abstraktne süntaksipuu}
+\end{figure}
+
+Abstraktne süntaksipuu võimaldab väikese vaevaga kompileerida Crumblepy lähtekood Crumble kontrolleri masinkoodiks. Joonisel~\ref{compiler-example} on väljavõte Crumblepy kompilaatori tuumast, rekursiivsest abstraktse süntaksipuu läbijast.
+
+\begin{figure}[ht]
+	\pythonfile{compiler-example.py}
+	\caption{Rekursiivne süntaksipuu läbimine}
+	\label{compiler-example}
+\end{figure}
+
+Funktsioon \python{compile_stmt} võtab argumendina sisse abstraktse süntaksipuu juurtippu (\texttt{Module} tipu) ning läbib rekursiivselt iga puu tipu ning väljastab iga tipu kohta vastava(d) masinkoodi käsu(d). Joonisel~\ref{set-output} on toodud Crumblepy funktsiooni \python{set_output(pesa, signaal)} kompileeriv funktsioon.
+
+\begin{figure}[ht]
+	\pythonfile{set-output.py}
+	\caption{Crumblepy funktsiooni \python{set_output(pesa, signaal)} kompileeriv funktsioon}
+	\label{set-output}
+\end{figure}
+
+Funktsioon \python{self.compile_expr(node)} kompileerib antud avaldise tipu sellele vastavaks masinkoodiks. Muutuja \python{self.assembly} on viide \python{Assembly} klassile, kus on abifunktsioonid lisas~\ref{masinkoodi-käsud} esitatud masinkoodikäskudega töötamiseks. Näidiskoodis joonisel~\ref{set-output} väljastab \python{self.assembly.dwr()} masinkoodi käsu \texttt{DWR}, mis loeb kahe eelneva \python{self.compile_expr(node)} käsu poolt pinusse pandud argumendid - pesa number ja signaali väärtus - ning väljastab antud pesast määratud signaali.
+
+Erinevalt Crumble tarkvarast puuduvad Crumblepy'l argumentidele ranged piirangud, mis võimaldavad Crumblepy keeles väljendada palju keerukamaid programme kui Crumble tarkvaras. Crumble tarkvara piirab näiteks funktsiooni ,,set'' argumendid olema täpselt ,,A'', ,,B'', ,,C'' või ,,D'' ning ,,HI'' või ,,LO''. Crumblepy selliseid piiranguid ei sea, mis tähendab, et joonisel~\ref{ast-code} olev kood on Crumblepy's lubatud, kuid Crumble tarkvaras mitte, sest seal kasutatakse ühe pesa väärtust teise pesa sisendina, mida Crumble tarkvaras ei ole võimalik teha.
+
+\subsection{Keele võimalused} \label{keele-võimalused}
+Järgnevates peatükkides on välja toodud kõik Crumblepy keele võimalused. Kuigi keel põhineb Pythonil, ei ole võimalik kõiki Pythoni võimalusi Crumble kontrolleri masinkoodis väljendada, mistõttu on esindatud vaid kindel alamhulk Pythoni funktsionaalsusest.
+
+\subsubsection{Funktsioonid}
+Crumblepy's on võimalik kasutada erinevaid funktsioone Crumble'i juhtimiseks. Kõik funktsioonid käituvad identselt vastavatele funktsioonidele Crumble tarkvaras ning on esitatud tabelis~\ref{functions-table}.
+
+\LTXtable{\linewidth}{functions-table.tex}
+
+Pesade identifikaatoritena võib kasutada nii numbreid $0$, $1$, $2$, $3$ (vastavalt pesad ,,A'', ,,B'', ,,D'', ,,C'') kui ka sisse ehitatud muutujaid \python{A}, \python{B}, \python{C}, \python{D}.
+
+\subsubsection{Tingimuslaused}
+Crumblepy toetab täielikult Pythoni tingimuslauseid (\python{if}-lauseid). Joonisel~\ref{if-code} on toodud näide \python{if}-\python{else} konstruktsioonist ning joonisel~\ref{if-code-asm} on toodud sama koodi esitus masinkoodis koos selgitavate kommentaaridega.
+
+\begin{figure}[!ht]
+	\pythonfile{if-code.crpy}
+	\caption{\python{if}-\python{else} konstruktsioon Crumblepy koodina}
+	\label{if-code}
+\end{figure}
+
+
+\inputminted{text}{if-code-asm.crpy}
+\captionof{figure}{\python{if}-\python{else} konstruktsioon Crumble'i masinkoodina\label{if-code-asm}}
+~
+
+Crumblepy's kasutab \python{if}-lause märgendeid, et vastavalt tingimuse kehtimisele hüpata kas \python{if}-haru või \python{else}-haru sisse. Tingimuseks võivad olla kõigi funktsioonide tagastusväärtused. Tõeseks väärtuseks loetakse kõike, mis ei ole $0$. Vääraks väärtuseks loetakse $0$. Samuti on võimalik kasutada loogilisi konstante \python{True} ja \python{False}, mis aga Crumble masinkoodis loogilise tüübi puudumise tõttu kompileeritakse vastavalt arvudeks $1$ ja $0$.
+
+\subsubsection{Tsüklid}
+asd
+
+\selectlanguage{estonian}
+\printbibliography[heading=bibintoc,title={Viidatud kirjandus}]
+\section*{Lisad}
+\addcontentsline{toc}{section}{Lisad}
+\setcounter{section}{0}
+\renewcommand{\thesection}{\Roman{section}}
+\section{Crumble kontrolleri masinkoodi käsud} \label{masinkoodi-käsud}
+\LTXtable{\linewidth}{machinecode-table.tex}
+\newpage
 
 \end{document}
