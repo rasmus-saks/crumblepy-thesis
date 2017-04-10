@@ -4,23 +4,23 @@
 	\endhead
 	\texttt{PUSH} $a$ & \texttt{00 00} & - & Paneb pinusse muutuja number $a$ väärtuse \\
 	\texttt{PUSHL} $a$ & \texttt{01 00} & - & Paneb pinusse väärtuse $a$ \\
-	\texttt{POP} $a$ & \texttt{03 00}  & $p$ & Seab muutuja number $p$ väärtuseks $a$ \\
+	\texttt{POP} $a$ & \texttt{03 00}  & $p$ & Seab muutuja number $a$ väärtuseks $p$ \\
 	\texttt{DUP} & \texttt{06 00} & $p$ & Paneb pinusse $p$ $p$ (kloonib pinu pealmise väärtuse) \\
-	\texttt{ADD} & \texttt{08 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 + p_2$ \\
-	\texttt{SUB} & \texttt{09 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 - p_2$ \\
-	\texttt{MUL} & \texttt{0A 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 * p_2$ \\
-	\texttt{DIV} & \texttt{0B 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 / p_2$ \\
-	\texttt{GTE} & \texttt{10 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 \geq p_2$ \\
-	\texttt{GT} & \texttt{11 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 > p_2$ \\
-	\texttt{LTE} & \texttt{12 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 \leq p_2$ \\
-	\texttt{LT} & \texttt{13 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 < p_2$ \\
-	\texttt{EQ} & \texttt{14 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 == p_2$ \\
+	\texttt{ADD} & \texttt{08 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 + p_2$ tulemuse \\
+	\texttt{SUB} & \texttt{09 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 - p_2$ tulemuse \\
+	\texttt{MUL} & \texttt{0A 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 * p_2$ tulemuse \\
+	\texttt{DIV} & \texttt{0B 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 / p_2$ tulemuse \\
+	\texttt{GTE} & \texttt{10 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 \geq p_2$ tulemuse \\
+	\texttt{GT} & \texttt{11 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 > p_2$ tulemuse \\
+	\texttt{LTE} & \texttt{12 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 \leq p_2$ tulemuse \\
+	\texttt{LT} & \texttt{13 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 < p_2$ tulemuse \\
+	\texttt{EQ} & \texttt{14 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 == p_2$ tulemuse \\
 	\texttt{RND} & \texttt{0C 00} & $p_1$ $p_2$ & Paneb pinusse suvalise täisarvu $p_1$ ja $p_2$ vahel \\
 	\texttt{BRA} $a$ & \texttt{18 00}  & - & Hüppab masinkoodi reale nr $a$ \\
 	\texttt{BEZ} $a$ & \texttt{19 00} & $p$ & Hüppab masinkoodi reale nr $a$, kui $p \neq 1$ \\
-	\texttt{AND} & \texttt{20 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 \land p_2$ \\
-	\texttt{NOT} & \texttt{22 00} & $p$ & Paneb pinusse  $\neg p_1$ \\
-	\texttt{OR} & \texttt{23 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 \lor p_2$ \\
+	\texttt{AND} & \texttt{20 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 \land p_2$ tulemuse \\
+	\texttt{NOT} & \texttt{22 00} & $p$ & Paneb pinusse  $\neg p_1$ tulemuse \\
+	\texttt{OR} & \texttt{23 00} & $p_1$ $p_2$ & Paneb pinusse $p_1 \lor p_2$ tulemuse \\
 	\texttt{DRD} & \texttt{28 00} & $p$ & Paneb pinusse pesast $p$ loetud digitaalse väärtuse (1 või 0) \\
 	\texttt{DWR} & \texttt{29 00} & $p_1$ $p_2$ & Väljastab pesast $p_1$ digitaalse signaali $p_2$ \\
 	\texttt{ARD} & \texttt{2A 00} & $p$ & Paneb pinusse pesast $p$ loetud analoogväärtuse \\
