@@ -1,0 +1,19 @@
+> python crumblepy -h
+
+usage: crumblepy [-h] [-o OUTPUT] [-f {bytecode,assembly,usb}]
+                 file
+
+Compile a .crpy source file
+
+positional arguments:
+  file                  The .crpy file to compile
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --output OUTPUT, -o OUTPUT
+                        File to save output to. Use --format to
+                        specify format. If unspecified, output
+                        is instead printed to console
+  --format {bytecode,assembly,usb}, -f {bytecode,assembly,usb}
+                        Output format. Defaults to usb.
+

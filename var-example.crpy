@@ -1,0 +1,1 @@
+a_and_b = get_digital(A) and get_digital(B)

@@ -16,7 +16,7 @@
 \usepackage[backend=biber,
 			sorting=none]{biblatex}
 			
-\usepackage [autostyle]{csquotes}
+
 \addbibresource{crumblepy.bib}
 
 \input{ut-style.tex}
@@ -56,8 +56,7 @@
 \graphicspath{{figures/}}
 
 % Packages for getting clickable links in PDF file
-\usepackage[hypertexnames=false]{hyperref}
-\usepackage[all]{hypcap}
+
 
 
 % Packages for defining colourful text together with some colours
@@ -69,6 +68,7 @@
 
 
 \usepackage{tocloft}
+\usepackage{enumitem}
 
 % Standard package for drawing algorithms
 % Since the thesis in article format we must define \chapter for
@@ -127,9 +127,12 @@
 \setminted{fontfamily=courier, python3=true, fontsize=\footnotesize}
 \newminted{python}{}
 \newmintinline[python]{python}{}
+\newmintinline[textinline]{text}{}
 \newmintedfile{python}{}
+\newmintedfile{text}{}
 %\lstMakeShortInline[columns=fixed]|
 
+\usepackage [autostyle]{csquotes}
 % Nice Todo box
 \newcommand{\TODO}{\todo[inline]}
 
@@ -139,7 +142,10 @@
 
 
 
+\usepackage[hypertexnames=false]{hyperref}
+\usepackage[all]{hypcap}
 
+\emergencystretch=1em
 
 %%% BEGIN DOCUMENT
 \begin{document}
@@ -160,7 +166,7 @@ Informaatika õppekava\\[2mm]
 
 \vspace{4mm}
 
-\huge Crumble \TODO{Täpne pealkiri}
+\huge Crumble kontrollerile Pythoni-laadse programmeerimiskeele loomine
 
 %\vspace*{\stretch{7}}
 \vspace{20mm}
@@ -204,63 +210,39 @@ Informaatika õppekava\\[2mm]
 % If the thesis is printed on both sides of the page then 
 % the second page must be must be empty. Comment this out
 % if you print only to one side of the page comment this out
-\newpage
-\thispagestyle{empty}    
-\phantom{Text to fill the page}
+%\newpage
+%\thispagestyle{empty}    
+%\phantom{Text to fill the page}
 % END OF EXTRA PAGE WITHOUT NUMBER
-
-
-% Remember to remove this from the final thesis version
-\newpage
-\listoftodos[TODO]
-% END OF TODO PAGE 
 
 % COMPULSORY INFO PAGE
 \newpage
 
-\noindent\textbf{\large Tüübituletus meetodit neljandat järku loogikavalemitele}
+\noindent\textbf{\large Crumble kontrollerile Pythoni-laadse programmeerimiskeele loomine}
 \vspace*{3ex}
 
 \noindent\textbf{Lühikokkuvõte:} 
-\TODO{One or two sentences providing a basic introduction to the field, comprehensible to a scientist in
-	any discipline.}
-\TODO{Two to three sentences of
-	more detailed background, comprehensible to scientists in related disciplines.}
-\TODO{One sentence clearly stating the general problem being addressed by this particular
-	study.}
-\TODO{One sentence summarising the main result.}
-\TODO{Two or three sentences explaining what
-	the main result reveals in direct
-	comparison to what was thought to be the case previously, or how the main result adds to previous knowledge.}
-\TODO{One or two sentences to put the results into a more general context.}
-\TODO{Two or three sentences to provide a
-	broader perspective, readily
-	comprehensible to a scientist in any
-	discipline, may be included in the first paragraph
-	if the editor considers that the accessibility of
-	the paper is significantly enhanced by their inclusion.}
+Crumble on Redfern Electronics'i loodud trükkplaat, millega on võimalik juhtida sellega ühendatud elektroonikakomponente. Crumble'it on võimalik programmeerida visuaalses programmeerimiskeeles erinevaid plokke kui pusletükke kokku vedades. Selline lähenemine ei ole õpilasele edasist õppimist toetav, sest reaalses elus kasutatakse visuaalsete programmeerimiskeelte asemel tekstipõhiseid. Käesoleva töö eesmärgiks on luua Pythonil põhinev programmeerimiskeel Crumble kontrolleri juhtimiseks. Loodud keeles kirjutatud programme on võimalik arvutis kompileerida ning otse Crumble kontrollerisse läbi USB ühenduse saata.
 \vspace*{3ex}
 
-\noindent\textbf{Võtmesõnad:}\TODO{List of keywords}
+\noindent\textbf{Võtmesõnad:} Crumble, Python, programmeerimiskeel, riistvara
 \vspace*{3ex}
 
-\noindent\textbf{CERCS:}\TODO{CERCS kood ja nimetus:~\url{https://www.etis.ee/Portal/Classifiers/Details/d3717f7b-bec8-4cd9-8ea4-c89cd56ca46e}}
+\noindent\textbf{CERCS:} P170 (Arvutiteadus, arvutusmeetodid, süsteemid, juhtimine (automaatjuhtimisteooria))
 \vspace*{6ex}
 
-
-\noindent\textbf{\large Type Inference for a Fourth Order Logic Formulae}
+\selectlanguage{english}
+\noindent\textbf{\large Creating a Python-like Programming Language for the Crumble Controller}
 \vspace*{3ex}
 {\flushleft{\textbf{Abstract:}} }
-Many interpreting program languages are dynamically typed, such as Visual Basic or Python. As a result, it is easy to write programs that crash due to mismatches of provided and expected data types.  One possible solution to this problem is automatic type derivation during compilation. In this work, we consider study how to detect type errors in the \textsc{Whitespace} language by using fourth order logic formulae as annotations. The main result of this thesis is a new triple-exponential type inference algorithm for the fourth order logic formulae. This is a significant advancement as the question whether there exists such an algorithm was an open question. 
-All previous attempts to solve the problem lead lead to logical inconsistencies or required tedious user interaction in terms of interpretative dance. Although the resulting algorithm is slightly inefficient, it can be used to detect obscure programming bugs in the \textsc{Whitespace} language. The latter significantly improves productivity. Our practical experiments showed that productivity is comparable to average Java programmer.   
-From a theoretical viewpoint, the result is only a small advancement in rigorous treatment of higher order logic formulae. The results obtained by us do not generalise to formulae with the fifth or higher order. 
 
+Crumble is a printed circuit board created by Redfern Electronics, which can be used to control electronics components attached to it. It is possible to program Crumble in a visual programming language by dragging together different blocks of code in a puzzle-like manner. This approach however is not very supportive towards a student's further studies in programming, because in real life visual programming languages are basically nonexistent, almost all programs are written in text. The aim of this thesis is to create a programming language based on Python for the Crumble controller. One would be able to compile programs written in the language on their computer and send them directly over USB to the Crumble controller.
 
 \vspace*{3ex}
-{\flushleft{\textbf{Keywords:}\TODO{List of keywords}}}
+{\flushleft{\textbf{Keywords:}}} Crumble, Python, programming language, hardware
 \vspace*{3ex}
 
-\noindent\textbf{CERCS:}\TODO{CERCS code and name:~\url{https://www.etis.ee/Portal/Classifiers/Details/d3717f7b-bec8-4cd9-8ea4-c89cd56ca46e}}
+\noindent\textbf{CERCS:} P170 (Computer science, numerical analysis, systems, control)
 
 
 
@@ -272,8 +254,11 @@ From a theoretical viewpoint, the result is only a small advancement in rigorous
 
 \section*{Sissejuhatus}
 \addcontentsline{toc}{section}{Sissejuhatus}
+Tänapäeval on tehnika lahutamatu osa inimeste eludest. Üha rohkem ja varajasemast east õpetatakse koolides lastele programmeerimist, kuid tihti jääb programmeerimise seos riistvaraga tähelepanuta. Selle probleemiga tegelemiseks on loodud mitmeid riistvarakomplekte, mida on võimalik küllaltki lihtsasti ka põhikooliõpilasel kokku panna ning arvuti abil programmeerida käituma vastavalt oma soovile. Üks sellistest komplektidest on firma Redfern Electronics loodud Crumble. Crumble võimaldab õpilastel, kes on programmeerimisega juba väheke tuttavad, lihtsa vaevaga ehitada ja programmeerida oma enda füüsiline robot, valgusfoor jne.
 
-Something
+Crumble'i probleem seisneb aga liiga algelises ja lihtsas programmeerimiskeeles. Programmeerimiseks veetakse omavahel kokku klotse nagu pusletükke. Selline programmeerimine on algajale lihtne, kuid ei toeta tema edasist arengut, kuna reaalne programmeerimine toimub siiski tekstipõhiselt. Käesoleva töö eesmärgiks on luua Crumble'ile programmeerimiskeel, mis põhineb keelel Python. Kuna Python on paljudes koolides (sh Tartu Ülikoolis) õpilaste esimeseks programmeerimiskeeleks, siis on võimalik selle keele abil siduda Pythoni programmeerimise õppimine riistvara programmeerimisega.
+
+Töö on jaotatud kaheks peatükiks. Esimeses peatükis antakse ülevaade Crumble'ist ning sellega ühilduvatest komponentidest. Teises peatükis tutvustatakse töö raames loodud programmeerimiskeelt Crumblepy.
 
 \section{Crumble}
 Crumble on Redfern Electronics’i loodud trükkplaat, millega on võimalik juhtida nii spetsiaalselt Crumble’i jaoks ehitatud sisend-väljundkomponente (koondnimega Crumb’id) kui ka tavalisi elektroonikakomponente ning valgusdioode (vt~\ref{sparkle})~\cite{TheCrumbleController}. Crumb’id erinevad analoogilistest elektroonikakomponentidest selle poolest, et neil on spetsiaalsed Crumble’ile mõeldud pesad. Nende pesade eelised on kirjeldatud peatükis~\ref{sec:kontroller}
@@ -288,9 +273,6 @@ Crumble’ile loovad komponente põhiliselt kaks firmat: Redfern Electronics, ke
 Kontroller on Crumble’i keskne komponent ning vajalik kõigi teiste komponentide tööks. Sellel on sisemälu ja protsessor, et salvestada jooksutatavat programmi ning juhtida ühendatud komponentide tööd. Kontrolleril on ühendused kahele mootorile, neljale sisend-väljundkomponendile, ühele energiasisendile (nt patareipakist), ühele energiaväljundile (nt valgusdioodile) ning Micro-USB kaablile~\cite{TheCrumbleController}. Joonisel~\ref{fig:basic-connections} on ülevaade Crumble kontrollerist.
 
 \fig[0.9]{basic-connections}{Crumble’i kontrolleri ülevaade~\cite{BasicConnections}.}
-
-
-
 
 Iga kontrolleri pesa on loodud võimaldamaks mitut erinevat ühendusviisi: suur 4mm auk sobib mugavaks ühendamiseks krokodilljuhtmete, elektrit juhtiva niidi või terminalplokiga\footnote{vt ptk~\ref{playground}} ning suur juhtiv pind sobib juhtmete jootmiseks~\cite{TheCrumbleController}.
 
@@ -397,7 +379,7 @@ PlayGround (joonis~\ref{fig:playground}) on 4tronix’i loodud terminalplokk sel
 
 \subsection{Arenduskeskkond ja -protsess} \label{tarkvara}
 
-Crumble’ile programmide loomiseks on tarvis mikrokontroller USB kaudu arvutiga ühendada. Samuti on vajalik alla laadida ja arvutisse paigaldada Crumble tarkvara (kättesaadav aadressil \url{http://redfernelectronics.co.uk/crumble-software/}).
+Crumble’ile programmide loomiseks on tarvis mikrokontroller USB kaudu arvutiga ühendada. Samuti on vajalik alla laadida ja arvutisse paigaldada Crumble tarkvara\footnote{Kättesaadav aadressil \url{http://redfernelectronics.co.uk/crumble-software/}}.
 
 Crumble tarkvara on MIT Scratchist inspireeritud keskkond Crumble’i programmide arendamiseks~\cite{TheCrumbleController}. Sarnaselt Scratchile luuakse programme erinevate plokkide kokkuvedamisega. Iga plokk on vastavalt oma tüübile kindla kujuga ning plokkidel võivad olla ka kindla kujuga augud, kuhu saab teisi plokke sisestada. Kõik käsud on pusletükikujulised ning sobituvad üksteise järele, tõeväärtused on kuusnurgad ning arvud ja muutujad ümardatud otstega ristkülikud.
 
@@ -461,33 +443,32 @@ Tehteplokid (joonis~\ref{fig:operators}) võimaldavad teha programmi töös esin
 
 \subsection{Arhitektuur}
 
-Crumble kontroller kasutab oma protsessoriks PIC16F1455~\footnote{\url{http://www.microchip.com/wwwproducts/en/PIC16F1455}} tüüpi mikrokontrollerit. Sellel on 14 KB mälu programmide salvestamiseks ning 1024 baiti sisemälu~\cite{PIC16F1455}. Komponentide juhtimiseks on Redfern Electronics loonud kontrollerile oma masinkoodi. Katse-eksitus meetodil leitud masinkoodi käsud ja nende kirjeldused on toodud lisas~\ref{masinkoodi-käsud}. 
+Crumble kontroller kasutab oma protsessoriks PIC16F1455\footnote{\url{http://www.microchip.com/wwwproducts/en/PIC16F1455}} tüüpi mikrokontrollerit. Sellel on 14 KB mälu programmide salvestamiseks ning 1024 baiti sisemälu~\cite{PIC16F1455}. Komponentide juhtimiseks on Redfern Electronics loonud kontrollerile oma masinkoodi. Katse-eksitus meetodil ning Crumble tarkvara lähtekoodi lugedes leitud masinkoodi käsud ja nende kirjeldused on toodud lisas~\ref{masinkoodi-käsud}. 
 
 
-Käsu enda argumendid (näiteks käsu ,,\texttt{POP} $a$'' puhul $a$) kodeeritakse koos käsu koodiga otse masinkoodi sisse. Käsu kood on tabelis esitatud kuueteistkümnendsüsteemi arvuna grupeeritud baitide kaupa. See on käsu numbriline esitus, mida Crumble protsessor lugeda ja millele vastavalt käituda oskab. Käsu argumendi kodeerimiseks lühendatakse see ühe baidi (kümnendüsteemi arv vahemikus $0$ kuni $255$) pikkuseks ning liidetakse otse käsu koodile. Näiteks käsu ,,\texttt{POP} 45'' masinkoodi esitusviis oleks ,,\texttt{03~2D}'', sest ,,\texttt{POP}'' masinkoodis on \texttt{03 00} (vt lisa \ref{masinkoodi-käsud}), $45$ kuueteistkümnendsüsteemis on \texttt{2D} ning $\texttt{03 00} + \texttt{2D} = \texttt{03 2D}$.
+Käsu enda argumendid (näiteks käsu ,,\texttt{POP} $a$'' puhul $a$) kodeeritakse koos käsu koodiga otse masinkoodi sisse. Käsu kood on tabelis esitatud kuueteistkümnendsüsteemi arvuna grupeeritud baitide kaupa. See on käsu numbriline esitus, mida Crumble protsessor lugeda ja millele vastavalt käituda oskab. Käsu argumendi kodeerimiseks lühendatakse see ühe baidi (kümnendüsteemi arv vahemikus $0$ kuni $255$) pikkuseks ning liidetakse otse käsu koodile. Näiteks käsu ,,\texttt{POP} 45'' masinkoodi esitusviis oleks ,,\texttt{03~2D}'', sest ,,\texttt{POP}'' masinkoodis on \texttt{03 00} (vt lisa \ref{masinkoodi-käsud}), $45$ kuueteistkümnendsüsteemis on \texttt{2D} ning $\texttt{03 00} + \texttt{2D} = \texttt{03 2D}$. Samuti on paljudel käskudel olemas ka pinu argumendid. Pinu argumendid salvestatakse programmi töö käigus protsessori pinusse, mille pealt käsud oma argumente loevad ning tagastusväärtuse olemasolul ka selle pinusse kirjutavad. Loogikatehete puhul (näiteks ,,\texttt{OR}'' või ,,\texttt{AND}'') loetakse tõeseks väärtuseks kõike, mis ei ole $0$.
 
-Loogikatehete puhul (näiteks ,,\texttt{OR}'') loetakse tõeseks väärtuseks kõike, mis ei ole $0$.
+Lisas~\ref{masinkoodi-käsud} toodud käsud on madalaima taseme ehituskivid Crumble'ile programmide loomiseks. Nende kombineerimisel kõrgema taseme funktsionaalsusteks põhineb nii Crumble tarkvara kui ka järgmises peatükis kirjeldatud ning töö eesmärgina loodav programmeerimiskeel Crumblepy.
 
+\section{Crumblepy} \label{crpy}
 
-\section{Crumblepy}
-
-Crumblepy~\footnote{Kättesaadav aadressil \url{https://github.com/rasmussaks/crumblepy}} on käesoleva töö raames loodud Pythonil põhinev programmeerimiskeel, millega on võimalik juhtida Crumble'i tööd. Järgnevad peatükid kirjeldavad nii Crumblepy ehitust ja kuidas selleni jõuti kui ka tööprotsessi sellega töötamisel.
+Crumblepy\footnote{Kättesaadav aadressil \url{https://github.com/rasmussaks/crumblepy}} on käesoleva töö raames loodud Pythonil põhinev programmeerimiskeel, millega on võimalik juhtida Crumble kontrolleri tööd. Järgnevad peatükid kirjeldavad nii Crumblepy ehitust ja mis valikuid selleni jõudmiseks tehti kui ka tööprotsessi sellega töötamisel.
 
 \subsection{Arhitektuur}
 
 Kuigi Crumble tarkvara on loodud Python 2-s, siis Crumblepy on kirjutatud Python 3-s. See erinevus tuleneb põhiliselt sellest, et Pythoni loojad ise soovitavad uute projektide alustamisel kasutada Pythoni kolmandat versiooni, sest see on paljudes aspektides parem kui Python 2~\cite{Python2orPython3-PythonWiki}. Lisaks sellele on autor tuttavam Python 3-ga kui Python 2-ga. Kuna Crumblepy põhineb Crumble tarkvara lähtekoodil, siis on tarvis Python 2-s kirjutatud kood ümber teisendada vastavaks Python 3 koodiks. 
 
-Failis ,,crumblepy/usb.py'' on kokku pandud Redfern Electronics'i loodud Pythoni kood Crumble'iga suhtlemiseks USB kaudu, mis on ümber teisendatud Python 3-e. Antud juhul oli tarvis teha vähe muudatusi, et algne kood jookseks samamoodi Python 3-l, kui ta jooksis Python 2-l. Põhilised erinevused tulenesid täisarvude jagamisel~\footnote{Kahe täisarvu jagamine Python 2-s tagastab täisarvu ($5/2 = 2$), Python 3-s aga ujukomaarvu ($5/2 = 2.5$)~\cite{KeyDifferences}} ning generaatorobjektide vs listide tagastamisel~\footnote{Python 2-s tagastasid paljud sisseehitatud funktsioonid (nt \python{range()} ja \python{dict().keys()}) list-tüüpi objekte, kuid Python 3-s tagastavad nad generaatorobjekte~\cite{KeyDifferences}}
+Failis ,,crumblepy/usb.py'' on kokku pandud Redfern Electronics'i loodud Pythoni kood Crumble'iga suhtlemiseks USB kaudu, mis on ümber teisendatud Python 3-e. Antud juhul oli tarvis teha vähe muudatusi, et algne kood jookseks sama moodi Python 3-l, kui ta jooksis Python 2-l. Põhilised erinevused tulenesid täisarvude jagamisel\footnote{Kahe täisarvu jagamine Python 2-s tagastab täisarvu ($5/2 = 2$), Python 3-s aga ujukomaarvu ($5/2 = 2.5$)~\cite{KeyDifferences}} ning generaatorobjektide või listide tagastamisel\footnote{Python 2-s tagastasid paljud sisseehitatud funktsioonid (nt \python{range()} ja \python{dict().keys()}) list-tüüpi objekte, kuid Python 3-s tagastavad need generaatorobjekte~\cite{KeyDifferences}}.
 
 Crumblepy on loodud olema algajatele võimalikult lihtne viis riistvaraprogrammeerimisega tegelemiseks. Seetõttu valiti Crumblepy keele põhjaks just Python, mida tihti õpetatakse koolides esimese programmeerimiskeelena. Samuti teeb Pythoni standardteek Pythoni parsimise väga lihtsaks, pakkudes selleks \python{ast} moodulit \cite{PythonAST}. Mooduli funktsioon \python{ast.parse()} võimaldab parsida sisendsõne Pythoni abstrakseks süntaksipuuks nagu on näidatud joonisel~\ref{astparse}.
 
 \begin{figure}[ht]
-	\label{astparse}
 	\pythonfile{ast.parse.py}
 	\caption{Faili parsimine abstraktseks süntaksipuuks}
+	\label{astparse}
 \end{figure}
 
-Tulemuseks on puu, mille tipud on Pythoni süntaksielemendid, mis on täielikult kirjeldatud Pythoni dokumentatsiooni peatükis 32.2.2~\footnote{\url{https://docs.python.org/3/library/ast.html#abstract-grammar}}. Selle puu rekursiivse läbimisega on võimalik kompileerida Pythonil põhinev sisendkood Crumble kontrollerile mõistetavaks masinkoodiks.
+Tulemuseks on puu, mille tipud on Pythoni süntaksielemendid, mis on täielikult kirjeldatud Pythoni dokumentatsiooni peatükis 32.2.2\footnote{\url{https://docs.python.org/3/library/ast.html#abstract-grammar}}. Selle puu rekursiivse läbimisega on võimalik kompileerida Pythonil põhinev sisendkood Crumble kontrollerile mõistetavaks masinkoodiks.
 
 Crumble'i masinkoodi piirangute tõttu ei ole võimalik kõiki Pythoni keele võimalusi kompileerida, mistõttu on paljud nendest välja jäetud ning annavad kompileerimisel veateate. Sinna kuuluvad näiteks ujukomaarvud, andmetüübid \python{list} ja \python{dict} ning palju muud. Crumblepy keele võimalustest on kirjutatud peatükis \ref{keele-võimalused}.
 
@@ -509,7 +490,7 @@ Crumblepy kompilaator (failis ,,crumblepy/compiler.py'') kasutab Pythoni \python
 
 Erinevalt lähtekoodist, kompileeritakse iga assemblerkoodi käsk üheks (välja arvatud mõnel erandjuhul kaheks) masinkoodi käsuks. Joonisel \ref{denable} on üks lähtekoodi käsk \python{set_output(D, 1)}, mis masinkoodis esitatakse kolme käsuga: kaks käsku argumentide pinusse panemiseks ning üks käsk väljundpesa väljundi seadmiseks vastavalt pinust loetud väärtustele.
 
-Iga Pythoni abstraktse süntaksipuu juurtipuks on \texttt{Module}, millest hargnevad alamtipud vastavalt programmi sisule. Joonisel~\ref{ast-code} on toodud kood, mis seab pesa A väljundiks pesa C signaali, kui pesa D signaal on 1, või signaali 0, kui pesa D signaal ei ole 1.
+Joonisel~\ref{ast-code} on toodud kood, mis seab pesa A väljundiks pesa C signaali, kui pesa D signaal on 1, või signaali 0, kui pesa D signaal ei ole 1.
 
 \begin{figure}[ht]
 	\pythonfile{ast-example.crpy}
@@ -558,11 +539,11 @@ Joonisel~\ref{ast-tree} on kujutatud joonisel~\ref{ast-code} toodud Crumblepy ko
 		]
 	\end{forest}
 	\shorthandon{"}
-	\label{ast-tree}
 	\caption{Abstraktne süntaksipuu}
+	\label{ast-tree}
 \end{figure}
 
-Abstraktne süntaksipuu võimaldab väikese vaevaga kompileerida Crumblepy lähtekood Crumble kontrolleri masinkoodiks. Joonisel~\ref{compiler-example} on väljavõte Crumblepy kompilaatori tuumast, rekursiivsest abstraktse süntaksipuu läbijast.
+Abstraktne süntaksipuu on koodi süntaktilise struktuuri esitus puuna. See võimaldab programmiliselt väikese vaevaga kompileerida Crumblepy lähtekood Crumble kontrolleri masinkoodiks. Joonisel~\ref{compiler-example} on väljavõte Crumblepy kompilaatori tuumast, rekursiivsest abstraktse süntaksipuu läbijast. Iga Pythoni abstraktse süntaksipuu juurtipuks on \texttt{Module}, millest hargnevad alamtipud vastavalt programmi sisule.
 
 \begin{figure}[ht]
 	\pythonfile{compiler-example.py}
@@ -570,7 +551,7 @@ Abstraktne süntaksipuu võimaldab väikese vaevaga kompileerida Crumblepy läht
 	\label{compiler-example}
 \end{figure}
 
-Funktsioon \python{compile_stmt} võtab argumendina sisse abstraktse süntaksipuu juurtippu (\texttt{Module} tipu) ning läbib rekursiivselt iga puu tipu ning väljastab iga tipu kohta vastava(d) masinkoodi käsu(d). Joonisel~\ref{set-output} on toodud Crumblepy funktsiooni \python{set_output(pesa, signaal)} kompileeriv funktsioon.
+Funktsioon \python{compile_stmt} võtab argumendina sisse abstraktse süntaksipuu juurtippu (\texttt{Module} tüüpi tipu) ning läbib rekursiivselt iga puu tipu ning väljastab iga tipu kohta sellele vastava(d) masinkoodi käsu(d). Joonisel~\ref{set-output} on toodud Crumblepy funktsiooni \python{set_output(pesa, signaal)} kompileeriv funktsioon.
 
 \begin{figure}[ht]
 	\pythonfile{set-output.py}
@@ -578,12 +559,12 @@ Funktsioon \python{compile_stmt} võtab argumendina sisse abstraktse süntaksipu
 	\label{set-output}
 \end{figure}
 
-Funktsioon \python{self.compile_expr(node)} kompileerib antud avaldise tipu sellele vastavaks masinkoodiks. Muutuja \python{self.assembly} on viide \python{Assembly} klassile, kus on abifunktsioonid lisas~\ref{masinkoodi-käsud} esitatud masinkoodikäskudega töötamiseks. Näidiskoodis joonisel~\ref{set-output} väljastab \python{self.assembly.dwr()} masinkoodi käsu \texttt{DWR}, mis loeb kahe eelneva \python{self.compile_expr(node)} käsu poolt pinusse pandud argumendid - pesa number ja signaali väärtus - ning väljastab antud pesast määratud signaali.
+Funktsioon \python{self.compile_expr(node)} kompileerib antud avaldise tipu sellele vastavaks masinkoodiks. Muutuja \python{self.assembly} on viide \python{crumblepy.Assembly} klassile, kus on abifunktsioonid lisas~\ref{masinkoodi-käsud} esitatud masinkoodikäskudega töötamiseks. Näidiskoodis joonisel~\ref{set-output} väljastab \python{self.assembly.dwr()} masinkoodi käsu \texttt{DWR}, mis loeb kahe eelneva \python{self.compile_expr(node)} käsu poolt pinusse pandud argumendid - pesa number ja signaali väärtus - ning väljastab antud pesast määratud signaali.
 
 Erinevalt Crumble tarkvarast puuduvad Crumblepy'l argumentidele ranged piirangud, mis võimaldavad Crumblepy keeles väljendada palju keerukamaid programme kui Crumble tarkvaras. Crumble tarkvara piirab näiteks funktsiooni ,,set'' argumendid olema täpselt ,,A'', ,,B'', ,,C'' või ,,D'' ning ,,HI'' või ,,LO''. Crumblepy selliseid piiranguid ei sea, mis tähendab, et joonisel~\ref{ast-code} olev kood on Crumblepy's lubatud, kuid Crumble tarkvaras mitte, sest seal kasutatakse ühe pesa väärtust teise pesa sisendina, mida Crumble tarkvaras ei ole võimalik teha.
 
 \subsection{Keele võimalused} \label{keele-võimalused}
-Järgnevates peatükkides on välja toodud kõik Crumblepy keele võimalused. Kuigi keel põhineb Pythonil, ei ole võimalik kõiki Pythoni võimalusi Crumble kontrolleri masinkoodis väljendada, mistõttu on esindatud vaid kindel alamhulk Pythoni funktsionaalsusest.
+Järgnevates peatükkides on välja toodud kõik funktsionaalsused, mida Crumblepy keel toetab. Kuigi keel põhineb Pythonil, ei ole võimalik kõiki Pythoni võimalusi Crumble kontrolleri masinkoodis väljendada, mistõttu on esindatud vaid kindel alamhulk Pythoni funktsionaalsusest.
 
 \subsubsection{Funktsioonid}
 Crumblepy's on võimalik kasutada erinevaid funktsioone Crumble'i juhtimiseks. Kõik funktsioonid käituvad identselt vastavatele funktsioonidele Crumble tarkvaras ning on esitatud tabelis~\ref{functions-table}.
@@ -609,16 +590,75 @@ Crumblepy toetab täielikult Pythoni tingimuslauseid (\python{if}-lauseid). Joon
 Crumblepy's kasutab \python{if}-lause märgendeid, et vastavalt tingimuse kehtimisele hüpata kas \python{if}-haru või \python{else}-haru sisse. Tingimuseks võivad olla kõigi funktsioonide tagastusväärtused. Tõeseks väärtuseks loetakse kõike, mis ei ole $0$. Vääraks väärtuseks loetakse $0$. Samuti on võimalik kasutada loogilisi konstante \python{True} ja \python{False}, mis aga Crumble masinkoodis loogilise tüübi puudumise tõttu kompileeritakse vastavalt arvudeks $1$ ja $0$.
 
 \subsubsection{Tsüklid}
-asd
+Crumblepys on võimalik kasutada vaid \python{while}-tsüklit. Toetatud on ka \python{continue} ja \python{break} laused vastavalt tsükli järgmisele iteratsioonile hüppamiseks ning tsükli lõpetamiseks. Pythoni \python{for}-tsüklit ei ole võimalik kasutada Crumble masinkoodis \python{list} tüübi puudumise tõttu.
+
+\subsubsection{Muutujad}
+Muutujate väärtustamine ja kasutamine toimub Crumblepys identselt Pythonile. Joonisel~\ref{var-example} on näidatud Crumblepys muutujale väärtuse andmine.
+
+\begin{figure}[!ht]
+	\pythonfile{var-example.crpy}
+	\caption{Muutuja väärtustamine Crumblepys}
+	\label{var-example}
+\end{figure}
+
+Erinevus Pythonist seisneb vaid võimalikes muutujatüüpides. Võimalik on kasutada vaid täisarve ja tõeväärtusi (\python{int} ja \python{bool}). Kusjuures tõeväärtused kompileeritakse täisarvudeks $1$ ja $0$ (vastavalt \python{True} ja \python{False}). See tähendab, et näiteks \python{True + 3} Crumblepy koodis on võrdne arvuga $4$.
+
+Samuti on reserveeritud neli muutujat \python{A}, \python{B}, \python{C} ja \python{D} vastavalt täisarvuliste väärtustega $0$, $1$, $3$ ja $2$, et oleks võimalik lihtsamalt viidata pesadele funktsioonides, mis vajavad pesa identifikaatoreid. Neid muutujaid ei ole lubatud üle kirjutada. See toob kaasa kompileerimisel veateate. Pesade identifikaatoritena on võimalik kasutada ka nende muutujate endi täisarvulisi väärtusi. Järgmised kaks koodijuppi on seega võrdväärsed: \python{get_digital(A)} ja \python{get_digital(0)}.
+
+\subsection{Kompilaatori kasutamine}
+Crumblepy kompilaator on loodud olema käsurealt kasutatav. Käsurea parsimiseks kasutatakse \python{argparse} moodulit. Parsimine toimub failis \hbox{,,crumblepy/\_\_init\_\_.py''} Kompilaatori käsureaargumendid on nähtavad, kirjutades käsureal \mintinline{text}{python crumblepy -h}. Selle käsu tulemus on näidatud joonisel~\ref{cmd-args}.
+
+
+\inputminted{text}{cmd-args.txt}
+\captionof{figure}{Crumblepy kompilaatori käsureaargumendid}\label{cmd-args}
+~
+
+Käsul on üks kohustuslik argument \textinline{file}, mis määrab Crumblepy lähtekoodi faili, mida kompilaator peab kompileerima. Võimalik on määrata argumendiga \textinline{--format} väljundi tüüp. Väljundi tüüp \textinline{bytecode} väljastab koodi baitide nimekirjana, \textinline{assembly} väljastab koodi assemblerkoodina, \textinline{usb} saadab kompileeritud masinkoodi USB ühenduse kaudu Crumble kontrollerile. Kasutades argumenti \textinline{--output}, on võimalik määrata, et konsooli trükkimise asemel salvestataks väljund faili. Kui on määratud \textinline{--format usb} (mis on ka vaikeväärtuseks), siis \textinline{--output} ei tee midagi.
+
+\subsection{Testimine}
+
+
+
+Crumblepy kompilaatori testimiseks on loodud programmid, mille eesmärgiks on testida kõiki kompilaatori funktsionaalsusi. Need programmid asuvad kaustas \hbox{,,test/crpy\_sources''}. Iga programmi päises on kommentaar testitava funktsionaalsuse kirjelduse ning oodatud tulemusega. Testi jooksutamiseks on tarvis Crumble ning sobivad Crumb'id ja Sparkle'id vastavalt testi kirjeldusele ja oodatud tulemusele omavahel ühendada ning Crumble kontroller USB kaudu arvutiga ühendada. Peale seda tuleks kompileerida testskript ning see saata USB kaudu Crumble kontrollerile. 
+
+\begin{figure}[!ht]
+	\inputminted{text}{testing-example.txt}
+	\caption{Testskripti kompileerimine ja Crumble kontrollerile saatmine}
+	\label{testing-example}
+\end{figure}
+
+Joonisel~\ref{testing-example} on näidisena toodud testskripti \hbox{,,test/crpy\_sources/d\_enable.crpy''} kompileerimine ning kontrollerile saatmine Crumblepy kompilaatori käsu abil. Kui Crumble käitub vastavalt testi päises toodud oodatud tulemusele, siis on test edukalt läbitud.
+
+\section*{Kokkuvõte}
+\addcontentsline{toc}{section}{Kokkuvõte}
+Käesoleva bakalaureusetöö eesmärgiks oli luua Crumble kontrollerile programmeerimiskeel, mis põhineb keelel Python. Töös anti ülevaade Crumble kontrollerist, sellega ühilduvatest komponentidest ning Crumble'i arenduskeskkonnast ja -protsessist. Loodi Pythoni baasil programmeerimiskeel Crumblepy, millega on võimalik Crumble kontrollerit juhtida, ning anti ülevaade selle loomisprotsessist. Samuti kirjeldati Crumblepy'ga töötamist: keele funktsionaalsusi ning selle kompileerimist.
+
+Valminud programmeerimiskeel ja selle kompilaator võimaldavad Pythoni-sarnase keelega Crumble kontrollerit juhtida. Sarnasus Pythoniga toetab algaja Pythonis programmeerija edasisi õpinguid paremini kui Crumble'i enda arenduskeskkond. Käesolevat tööd oleks võimalik edasi arendada, luues valiku õppematerjale või projekte, mida Crumblepy'd kasutades oleks võimalik koolitundides kasutada.
 
 \selectlanguage{estonian}
 \printbibliography[heading=bibintoc,title={Viidatud kirjandus}]
 \section*{Lisad}
 \addcontentsline{toc}{section}{Lisad}
 \setcounter{section}{0}
-\renewcommand{\thesection}{\Roman{section}}
+%\renewcommand{\thesection}{\Roman{section}}
 \section{Crumble kontrolleri masinkoodi käsud} \label{masinkoodi-käsud}
 \LTXtable{\linewidth}{machinecode-table.tex}
 \newpage
+\section{Litsents}
+Mina, \textbf{Rasmus Saks}
+\begin{enumerate}
+	\item annan Tartu Ülikoolile tasuta loa (lihtlitsentsi) enda loodud teose ,,\textbf{Crumble kontrollerile Pythoni-laadse programmeerimiskeele loomine}'', mille juhendaja on \textbf{Aivar Annamaa}
+	\begin{enumerate}[label*=\arabic*.]
+		\item reprodutseerimiseks säilitamise ja üldsusele kättesaadavaks tegemise eesmärgil, sealhulgas digitaalarhiivi DSpace-is lisamise eesmärgil kuni autoriõiguse kehtivuse tähtaja lõppemiseni
+		\item üldsusele kättesaadavaks tegemiseks Tartu Ülikooli veebikeskkonna kaudu, sealhulgas digitaalarhiivi DSpace'i kaudu kuni autoriõiguse kehtivuse tähtaja lõppemiseni.
+	\end{enumerate}
+	\item olen teadlik, et punktis 1 nimetatud õigused jäävad alles ka autorile.
+	\item kinnitan, et lihtlitsentsi andmisega ei rikuta teiste isikute intellektuaalomandi ega isikuandmete kaitse seadusest tulenevaid õigusi.
+\end{enumerate}
+
+
+Tartus, \textbf{\today}
+\newpage
 
 \end{document}
+
